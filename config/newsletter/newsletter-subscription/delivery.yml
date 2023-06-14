@@ -57,7 +57,7 @@ spec:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.health.probes.enabled="true" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.apps-contour.vsptap.sschmidt.ch/tap-supply-chain-scanning/newsletter-subscription-newsletter@sha256:eddbee19b34f442bfe35108f77e1fdbe415db5acf6e56801ed4ce393ae20f481
+        image: harbor.apps-contour.vsptap.sschmidt.ch/tap-supply-chain-scanning/newsletter-subscription-newsletter@sha256:113e89a733277f386e08bde5600c1975658c186e32b50fe719f8c2d4bd9e53fa
         livenessProbe:
           httpGet:
             path: /livez
