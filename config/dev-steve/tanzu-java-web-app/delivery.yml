@@ -12,6 +12,7 @@ metadata:
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: server
     my.label: steve.gitops
+    trigger: "1"
     app.kubernetes.io/component: run
     carto.run/workload-name: tanzu-java-web-app
 spec:
@@ -30,6 +31,7 @@ spec:
       tanzu.app.live.view.application.actuator.port: "8081"
       tanzu.app.live.view.application.flavours: spring-boot
       tanzu.app.live.view.application.name: tanzu-java-web-app
+      trigger: "1"
   template:
     metadata:
       annotations:
@@ -61,6 +63,7 @@ spec:
         tanzu.app.live.view.application.actuator.port: "8081"
         tanzu.app.live.view.application.flavours: spring-boot
         tanzu.app.live.view.application.name: tanzu-java-web-app
+        trigger: "1"
     spec:
       containers:
       - env:
@@ -96,6 +99,7 @@ metadata:
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/workload-type: server
     my.label: steve.gitops
+    trigger: "1"
     app.kubernetes.io/component: run
     carto.run/workload-name: tanzu-java-web-app
 spec:
@@ -113,6 +117,7 @@ spec:
     tanzu.app.live.view.application.actuator.port: "8081"
     tanzu.app.live.view.application.flavours: spring-boot
     tanzu.app.live.view.application.name: tanzu-java-web-app
+    trigger: "1"
   ports:
   - targetPort: 8080
     port: 8080
