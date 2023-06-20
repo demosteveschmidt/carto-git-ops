@@ -18,11 +18,17 @@ spec:
   template:
     metadata:
       annotations:
+        apps.tanzu.vmware.com/debug: "true"
+        apps.tanzu.vmware.com/live-update: "true"
+        autoscaling.knative.dev/maxScale: "1"
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 3.0.4
         conventions.carto.run/applied-conventions: |-
           appliveview-sample/app-live-view-appflavour-check
+          developer-conventions/debug-convention
+          developer-conventions/live-update-convention
+          developer-conventions/add-source-image-label
           spring-boot-convention/auto-configure-actuators-check
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-graceful-shutdown
@@ -32,6 +38,7 @@ spec:
           spring-boot-convention/app-live-view-appflavour-check
           spring-boot-convention/app-live-view-connector-boot
           spring-boot-convention/app-live-view-appflavours-boot
+        developer.apps.tanzu.vmware.com/image-source-digest: harbor.apps-contour.vsptap.sschmidt.ch/library/tanzu-java-web-app-test:latest@sha256:19d7a9cca366947b473916e8ce00e10377b3d30ffd5b525d68fc27338d09b705
         developer.conventions/target-containers: workload
       labels:
         app.kubernetes.io/component: run
@@ -50,9 +57,13 @@ spec:
     spec:
       containers:
       - env:
+        - name: BPL_DEBUG_ENABLED
+          value: "true"
+        - name: BPL_DEBUG_PORT
+          value: "9005"
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details="always" -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include="*" -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: harbor.apps-contour.vsptap.sschmidt.ch/tap-supply-chain-scanning/tanzu-java-web-app-test-test-steve@sha256:b43b58b783e5a4a15812fd725e580cf447d97fe8b194e631925d877f8e25fdc1
+        image: harbor.apps-contour.vsptap.sschmidt.ch/tap-supply-chain-scanning/tanzu-java-web-app-test-test-steve@sha256:b15250ff9b33a6bf8a7e3590bf5da920356443884632471f81773f5c7a46280a
         livenessProbe:
           httpGet:
             path: /livez
