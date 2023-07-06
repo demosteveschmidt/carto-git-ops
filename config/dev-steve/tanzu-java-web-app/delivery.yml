@@ -27,6 +27,7 @@ spec:
       carto.run/workload-name: tanzu-java-web-app
       conventions.carto.run/framework: spring-boot
       my.label: steve.gitops
+      mylabel: buddy
       tanzu.app.live.view: "true"
       tanzu.app.live.view.application.actuator.path: actuator
       tanzu.app.live.view.application.actuator.port: "8081"
@@ -59,6 +60,7 @@ spec:
         carto.run/workload-name: tanzu-java-web-app
         conventions.carto.run/framework: spring-boot
         my.label: steve.gitops
+        mylabel: buddy
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.path: actuator
         tanzu.app.live.view.application.actuator.port: "8081"
@@ -114,6 +116,7 @@ spec:
     carto.run/workload-name: tanzu-java-web-app
     conventions.carto.run/framework: spring-boot
     my.label: steve.gitops
+    mylabel: buddy
     tanzu.app.live.view: "true"
     tanzu.app.live.view.application.actuator.path: actuator
     tanzu.app.live.view.application.actuator.port: "8081"
